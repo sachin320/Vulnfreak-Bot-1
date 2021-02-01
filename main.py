@@ -340,6 +340,220 @@ async def wiki(ctx,*, message):
 
 
 
+@client.command(brief="Reverse Payloads")
+async def reverse(ctx ,*, message):
+    if(ctx.channel.id ==803177990837633055):
+        if message == 'help':
+            embed = discord.Embed(
+        colour = discord.Colour.greyple()
+        )
+
+
+        index_of_seach_key = payloads_key.index('reverse')
+        list_of_paylods = inside_payload[index_of_seach_key]
+        if message == "help":
+            embed = discord.Embed(
+        colour = discord.Colour.greyple()
+    )
+        
+            for i in list_of_paylods:
+                embed.set_author(name='Reverse Payloads')
+                embed.add_field(name=f'{i}', value =f'Payloads', inline=False)
+            await ctx.send(embed=embed)
+        if message in list_of_paylods : 
+            if len(payload_list['reverse'][message])<1:
+                embed = discord.Embed(
+        colour = discord.Colour.greyple()
+    )
+                embed.set_author(name=f'{message}')
+                embed.add_field(name=f'Payloads', value =f'{payload_list["reverse"][message][0]}', inline=False)
+                await ctx.send(embed=embed)
+            else:
+                for i in range(len(payload_list['reverse'][message])):
+                    embed = discord.Embed(
+        colour = discord.Colour.greyple()
+    )
+                    embed.set_author(name=f'{message}')
+                    embed.add_field(name=f'Payloads', value =f'{payload_list["reverse"][message][i]}', inline=False)
+                    await ctx.send(embed=embed)
+    else:
+        embed = discord.Embed(
+        colour = 0x000000,
+    )
+        
+        embed.add_field(name='ALERT',value="**Please Use #payloads Channel**", inline=False)
+        await ctx.send(embed=embed)
+    
+  
+
+@client.command()
+async def msf(ctx,*,message):
+    
+    if(ctx.channel.id ==803177990837633055):
+        if message == 'help':
+            embed = discord.Embed(
+        colour = 0x00c09a,
+        )
+
+
+        index_of_seach_key = payloads_key.index('meterpreter')
+        list_of_paylods = inside_payload[index_of_seach_key]
+        if message == "help":
+            embed = discord.Embed(
+        colour = 0x00c09a,
+    )
+        
+            for i in list_of_paylods:
+                embed.set_author(name=' Meterpreter Payloads')
+                embed.add_field(name=f'{i}', value =f'Payloads', inline=False)
+            await ctx.send(embed=embed)
+        if message in list_of_paylods : 
+            if len(payload_list['meterpreter'][message])<1:
+                embed = discord.Embed(
+        colour = 0x00c09a,
+    )
+                embed.set_author(name=f'{message}')
+                embed.add_field(name=f'Payloads', value =f'{payload_list["meterpreter"][message][0]}', inline=False)
+                await ctx.send(embed=embed)
+            else:
+                for i in range(len(payload_list['meterpreter'][message])):
+                    embed = discord.Embed(
+        colour = 0x00c09a,
+    )
+                    embed.set_author(name=f'{message}')
+                    embed.add_field(name=f'Payloads', value =f'{payload_list["meterpreter"][message][i]}', inline=False)
+                    await ctx.send(embed=embed)
+    else:
+        embed = discord.Embed(
+        colour = 0x000000,
+    )
+        
+        embed.add_field(name='ALERT',value="**Please Use #payloads Channel**", inline=False)
+        await ctx.send(embed=embed)
+        
+    
+
+        
+@client.command()
+async def ctftime(ctx,message):
+    command = message.split(" ")
+    
+    if command[0] == 'help':
+            embed = discord.Embed(
+        colour = discord.Colour.blue()
+    )
+
+            embed.set_thumbnail(url="https://pbs.twimg.com/profile_images/2189766987/ctftime-logo-avatar_400x400.png")
+    
+            embed.add_field(name='For Upcoming CTFs', value=f'.ctftime number ( 1-5 )',inline=False)
+            embed.add_field(name='For Help', value=f'.ctftime help',inline=False)
+            await ctx.send(embed=embed)
+    
+    
+    if int(command[0]) :
+        
+        if int(command[0]) > 5 or int(command[0])<1:
+            
+            embed = discord.Embed(
+        colour = 0xff0000,
+    )
+        
+            embed.add_field(name='INFO',value="**Use .ctftime help For Better Use Of Command**", inline=False)
+            await ctx.send(embed=embed)
+        else:
+           
+            headers = {
+        'User-Agent': 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:61.0) Gecko/20100101 Firefox/61.0',
+        }
+            upcoming = 'https://ctftime.org/api/v1/events/'
+            limit = command[0]
+            response = requests.get(upcoming, headers=headers, params=limit)
+            jdata = response.json()
+
+
+            for i in range(int(limit)):
+                new_item = jdata[i]
+                name = new_item['organizers'][0]['name']
+                url = new_item['url']
+                type = new_item['format']
+                timestamp = "Days : " + str(new_item['duration']['days']) + " Hours : " + str(new_item['duration']['hours'])
+                image = new_item['logo'] 
+                if image == '':
+                    image = "https://pbs.twimg.com/profile_images/2189766987/ctftime-logo-avatar_400x400.png"
+                weight = new_item['weight']
+                embed = discord.Embed(title=f"{url}", url=f"{url}", colour = discord.Colour.green())
+                embed.set_thumbnail(url=image)
+                embed.set_author(name=f"☣ {name}")
+                embed.add_field(name=f'format', value =f'{type}', inline=True)
+                embed.add_field(name=f'Duration', value =f'{timestamp}', inline=True)
+                embed.add_field(name=f'Weight', value =f'{weight}', inline=True)               
+                await ctx.send(embed=embed)
+    else:
+        embed = discord.Embed(
+        colour = 0xff0000,
+    )
+        
+        embed.add_field(name='INFO',value="**Use .ctftime help For Better Use Of Command**", inline=False)
+        await ctx.send(embed=embed)
+        
+        
+@ctftime.error
+async def clear_error(ctx, error):
+    if isinstance(error, commands.errors.BadArgument):
+        embed = discord.Embed(
+        colour = 0xff0000,
+    )
+        
+        embed.add_field(name='WARNING',value="**Use .ctftime help For Better Use Of Command**", inline=False)
+        await ctx.send(embed=embed)
+
+@client.command()
+async def gtf(ctx, message):
+    if(ctx.channel.id ==803178117673385984):
+        page = requests.get(
+        f"https://gtfobins.github.io/gtfobins/{message}")
+        soup = BeautifulSoup(page.content, 'html.parser')
+    
+
+
+        all_h1_tags = []
+        all_code_tags = []
+
+
+        for element in soup.select('h2'):
+            all_h1_tags.append(element.text)
+
+
+        remove_code = []
+
+
+        for element in soup.select('.highlighter-rouge'):
+            remove_code.append(element.text)
+
+        for element in soup.select('code'):
+            all_code_tags.append(element.text)
+
+        for element in range(len(remove_code)):
+            if  remove_code[element] in all_code_tags:
+        
+                all_code_tags.remove(remove_code[element])
+            else:
+                pass
+    
+        for element in range(len(all_code_tags)):
+            embed = discord.Embed(
+        color = 0x008e44,
+    )
+            embed.set_author(name=f'{message}')
+            embed.add_field(name=f'{all_h1_tags[element]}', value =f'{all_code_tags[element]}', inline=False)
+            await ctx.send(embed=embed)
+    else:
+        embed = discord.Embed(
+        colour = 0x000000,
+    )
+        
+        embed.add_field(name='ALERT',value="**Please Use #gtfo Channel**", inline=False)
+        await ctx.send(embed=embed)
 
 @client.command()
 @commands.has_permissions(administrator=True)
@@ -423,7 +637,7 @@ async def av(ctx, *, member: discord.Member): # set the member object to None
     await ctx.send(embed=show_avatar)
 
 
-
+keep_alive()
 client.run('API_TOKEN')
 
 
