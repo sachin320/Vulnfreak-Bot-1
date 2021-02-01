@@ -227,7 +227,7 @@ async def help(ctx):
         colour = discord.Colour.blue()
     )
 
-    embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/799308817274896415/803128693294628914/2755bfa3d9fe1bd81b8ba67603a3f3e9-removebg-preview.png")
+    embed.set_thumbnail(url="https://vulnfreak.com/images/bot.png")
     embed.set_author(name='Help')
     embed.add_field(name='Bot Commands', value=f'Command Help You To Operate Me \n :small_red_triangle_down: :small_red_triangle_down: :small_red_triangle_down: :small_red_triangle_down: :small_red_triangle_down: :small_red_triangle_down: :small_red_triangle_down: :small_red_triangle_down: ', inline=False)
     embed.set_author(name='Help')
@@ -261,7 +261,7 @@ async def payloads(ctx):
     embed = discord.Embed(
         colour = discord.Colour.red()
     )
-    embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/799308817274896415/803128693294628914/2755bfa3d9fe1bd81b8ba67603a3f3e9-removebg-preview.png")
+    embed.set_thumbnail(url="https://vulnfreak.com/images/bot.png")
     embed.set_author(name='payload')
     embed.add_field(name='Some Payloads for you', value=f'\n :small_red_triangle_down: :small_red_triangle_down: :small_red_triangle_down: :small_red_triangle_down: :small_red_triangle_down: :small_red_triangle_down: :small_red_triangle_down: :small_red_triangle_down: ', inline=False)
     embed.set_author(name='payload')
