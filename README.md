@@ -73,6 +73,7 @@ Vulnfreak Python Discord Bot
 **What It Do: Retrun the upcoming CTFs**
 
 **Contributors**
+<br>
 [![](https://avatars.githubusercontent.com/u/54953623?s=50)](https://github.com/SatyenderYadav)
 [![](https://avatars.githubusercontent.com/u/68700493?s=50)](https://github.com/sachin320)
 [![](https://avatars.githubusercontent.com/u/56115997?s=50)](https://github.com/x3rz)
