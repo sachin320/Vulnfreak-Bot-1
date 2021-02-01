@@ -25,26 +25,31 @@ Vulnfreak Python Discord Bot
 >.clear [number]
 
 **Example : .clear 4**
+
 **What It Do: clear / delete the chats of the specified number ( Only admins can do this )**
 
 >.kick [username]
 
 **Example : .kick @bot**
+
 **What It Do: Kick any user ( Only admins can do this )**
 
 >.ban [username]
 
 **Example : .ban @bot**
+
 **What It Do: Ban any user ( Only admins can do this )**
 
 >.wiki "any word"
 
 **Example : .wiki "bot"**
+
 **What It Do:Return the wikipedia result of the word**
 
 >.gtf [binary_name]
 
 **Example : .gtf python**
+
 **What It Do: Return the GTFOBINS result for the specified bianry**
 
 >.payloads 
@@ -52,14 +57,17 @@ Vulnfreak Python Discord Bot
 >.reverse [For which"]
 
 **Example : .reverse awk**
+
 **What It Do: Return the reverse shell code for the specified one**
 
 >.msf [For_which]
 
 **Example : .msf Linux_Staged_reverse_TCP**
+
 **What It Do: Retrun the msfvenom command for the specified one**
 
 >.ctftime [number]
 
 **Example : .ctftime 3**
+
 **What It Do: Retrun the upcoming CTFs**
